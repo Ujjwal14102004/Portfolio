@@ -1,18 +1,17 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Sun, Moon } from "lucide-react";
 
 export default function Portfolio() {
   const [darkMode, setDarkMode] = useState(true);
 
   return (
-    <div className={darkMode ? "dark bg-black text-white" : "bg-white text-black"}>
-      <header className="flex justify-between items-center p-6">
+    <div className={`${darkMode ? "dark bg-black text-white" : "bg-white text-black"} min-h-screen`}>
+      <header className="flex justify-between items-center p-6 border-b border-gray-700">
         <h1 className="text-3xl font-bold neon-text">Velos</h1>
-        <Button onClick={() => setDarkMode(!darkMode)} variant="outline">
+        <button onClick={() => setDarkMode(!darkMode)} className="p-2 border rounded-full">
           {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-        </Button>
+        </button>
       </header>
 
       <motion.section
@@ -22,9 +21,7 @@ export default function Portfolio() {
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-4xl font-bold">Welcome to My Cyberpunk Portfolio</h2>
-        <p className="mt-4 text-lg">
-          UI/UX Designer | Graphic Designer | Video Editor | Music Producer
-        </p>
+        <p className="mt-4 text-lg">UI/UX Designer | Graphic Designer | Video Editor | Music Producer</p>
       </motion.section>
 
       <motion.div
@@ -33,18 +30,16 @@ export default function Portfolio() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.7 }}
       >
-        <div className="p-6 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition-transform">
-          <h3 className="text-xl font-semibold">UI/UX Projects</h3>
-          <p>Check out my latest design works.</p>
-        </div>
-        <div className="p-6 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition-transform">
-          <h3 className="text-xl font-semibold">Graphic Designs</h3>
-          <p>Creative posters, album covers, and more.</p>
-        </div>
-        <div className="p-6 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition-transform">
-          <h3 className="text-xl font-semibold">Music Production</h3>
-          <p>Explore my beats and soundtracks.</p>
-        </div>
+        {["UI/UX Projects", "Graphic Designs", "Music Production"].map((category, index) => (
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.05 }}
+            className="p-6 bg-gray-800 rounded-2xl shadow-lg transition-transform"
+          >
+            <h3 className="text-xl font-semibold">{category}</h3>
+            <p>Check out my work in {category.toLowerCase()}.</p>
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );
