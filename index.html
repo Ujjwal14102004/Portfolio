@@ -4,10 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velos Portfolio</title>
-    <link rel="stylesheet" href="/src/index.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s ease, color 0.3s ease;
+            text-align: center;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        .neon-text {
+            color: #0ff;
+            text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #00f;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .toggle-btn:hover {
+            background: #444;
+            color: #fff;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+    </style>
 </head>
-<body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+<body class="dark-mode">
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Mode</button>
+
+    <div class="content fade-in">
+        <h1 class="neon-text">Velos</h1>
+        <h2>Welcome to My Cyberpunk Portfolio</h2>
+        <p>UI/UX Designer | Graphic Designer | Video Editor | Music Producer</p>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
 </html>
