@@ -3,77 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velos Portfolio</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
-        body {
-            font-family: 'Orbitron', sans-serif;
-            margin: 0;
-            padding: 0;
-            transition: background 0.3s ease, color 0.3s ease;
-            text-align: center;
-        }
-
-        .dark-mode {
-            background-color: black;
-            color: white;
-        }
-
-        .neon-text {
-            color: #0ff;
-            text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #00f;
-        }
-
-        .toggle-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-
-        .toggle-btn:hover {
-            background: #444;
-            color: #fff;
-        }
-
-        .content {
-            padding: 50px;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-in-out;
-        }
-    </style>
+    <title>Portfolio | My Work</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body class="dark-mode">
-    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Mode</button>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1>My Portfolio</h1>
+        <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <button id="theme-toggle">Toggle Theme</button>
+        </ul>
+    </nav>
 
-    <div class="content fade-in">
-        <h1 class="neon-text">Velos</h1>
-        <h2>Welcome to My Cyberpunk Portfolio</h2>
-        <p>UI/UX Designer | Graphic Designer | Video Editor | Music Producer</p>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Designing Experiences, Crafting Visuals</h2>
+        <p>UI/UX | Graphic Design | Video Editing</p>
+        <div class="buttons">
+            <button class="outline">View My Work</button>
+            <button class="default">Hire Me</button>
+        </div>
+    </section>
 
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
-        }
-    </script>
+    <!-- Work Showcase -->
+    <section id="work" class="work">
+        <div class="work-card">
+            <h3>UI/UX Projects</h3>
+            <p>Case studies and interactive designs.</p>
+        </div>
+        <div class="work-card">
+            <h3>Graphic Design</h3>
+            <p>Logos, branding, posters, album covers.</p>
+        </div>
+        <div class="work-card">
+            <h3>Video Editing</h3>
+            <p>Motion graphics, trailers, reels.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 MyPortfolio | Designed by Me</p>
+    </footer>
+
 </body>
 </html>
